@@ -10,9 +10,6 @@ const getImgButton = document.querySelector('#newCatImg');
 
 // Text data from 'createRequest' success argument
 const catFactsUISuccess = function(parsedData) {
-    // function(data) {
-    // const parsedData = JSON.parse(data);
-    // }
     const number = Math.floor(Math.random() * parsedData.length);
     addWords.textContent = parsedData[number].text;
 }
@@ -30,7 +27,6 @@ const catPicUIError = function(error) {
 
 const handleErrors = function(response) {
     if(!response.ok) {
-        //throw (response.status + ': ' + response.statusText);
         addWords.textContent = `Failed to load resource (${response.status}: ${response.statusText})`;
         throw (`${response.status}: ${response.statusText}`);
     }
@@ -39,10 +35,7 @@ const handleErrors = function(response) {
 
 const createRequest = function(url, success, fail, init) {
     fetch(url, init)
-        // .then((response) => {console.log(response)})
-        // .then((response) => response.json())
         .then((response) => handleErrors(response))
-        // .then((data) => {console.log(data)})
         .then((data) => success(data))
         .catch((error) => fail(error));
 }
