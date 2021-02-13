@@ -1,5 +1,5 @@
 # cat-facts
-Fetch practice with Javascript. Silly cats!
+As simple example of working with Javascript and fetching from two different APIs.
 
 https://cat-facts-six.vercel.app
 
